@@ -25,7 +25,7 @@
 @_exported import JSON
 @_exported import MediaType
 
-public class JSONMediaType: MediaType {
+public final class JSONMediaType: MediaType {
     public init() {
         super.init(
             type: "application",
