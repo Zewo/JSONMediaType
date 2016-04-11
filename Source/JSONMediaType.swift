@@ -31,8 +31,8 @@ public final class JSONMediaType: MediaType {
             type: "application",
             subtype: "json",
             parameters: ["charset": "utf-8"],
-            parser: JSONInterchangeDataParser(),
-            serializer: JSONInterchangeDataSerializer()
+            parser: JSONStructuredDataParser(),
+            serializer: JSONStructuredDataSerializer()
         )
     }
 }
