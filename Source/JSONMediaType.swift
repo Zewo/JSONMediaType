@@ -22,17 +22,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@_exported import JSON
+@_exported import enum JSON.JSON
+@_exported import struct JSON.JSONStructuredDataParser
+@_exported import struct JSON.JSONStructuredDataSerializer
 @_exported import MediaType
 
-public final class JSONMediaType: MediaType {
-    public init() {
-        super.init(
+extension JSON : MediaTypeRepresentor {
+    public static var mediaType: MediaType {
+        return MediaType(
             type: "application",
             subtype: "json",
-            parameters: ["charset": "utf-8"],
-            parser: JSONStructuredDataParser(),
-            serializer: JSONStructuredDataSerializer()
+            parameters: ["charset": "utf-8"]
         )
+    }
+
+    public static var parser: StructuredDataParser {
+        return JSONStructuredDataParser()
+    }
+
+    public static var serializer: StructuredDataSerializer {
+        return JSONStructuredDataSerializer()
     }
 }
